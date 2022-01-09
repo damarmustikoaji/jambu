@@ -31,8 +31,8 @@ jobs:
         with:
           node-version: 12.x
           cache: npm
-        run: |
-          cp .env.sample .env \
-          && npm install
+          run: |
+            cp .env.sample .env \
+            && npm install
       - name: Automation Test3
         run: npm run test-api
