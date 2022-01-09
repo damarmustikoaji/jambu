@@ -33,6 +33,8 @@ jobs:
         run: npm run test-api
       - name: Reporting
         run: ls
+      - name: Reporting
+        run: ls reports
         # uses: actions/upload-artifact@v2
         # with:
         #   name: Reports
