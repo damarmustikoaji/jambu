@@ -19,12 +19,12 @@ jobs:
     # needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Automation Test0
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14.16.0
-          cache: npm
+      # - uses: actions/checkout@v2
+      # - name: Automation Test0
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 14.16.0
+      #     cache: npm
       - uses: actions/checkout@v2
       - name: Automation Test1
         uses: actions/checkout@v2
@@ -32,4 +32,4 @@ jobs:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
       - name: Automation Test2
-        run: ls
+        run: ls -a
