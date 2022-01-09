@@ -31,16 +31,8 @@ jobs:
         run: npm install
       - name: AT Run
         run: npm run test-api
-      - name: Reporting
-        run: ls
-      - name: Reporting
-        run: ls reports
-        # uses: actions/upload-artifact@v2
-        # with:
-        #   name: Reports
-        #   path: /reports
-      - uses: actions/upload-artifact@v2
-        name: Archive Results
+      - name: Import Results
+        uses: actions/upload-artifact@v2
         with:
-          name: Reporting
+          name: Reports
           path: ./reports
