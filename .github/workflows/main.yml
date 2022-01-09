@@ -23,11 +23,10 @@ jobs:
       - name: Automation Test
         uses: actions/checkout@v2
         with:
-          token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
-          path: durian
+          token: ${{secrets.JAMBHU}}
           run: |
-            cd /durian \
+            cd durian \
             && cp .env.sample .env \
             && npm install \
             && ls -a
