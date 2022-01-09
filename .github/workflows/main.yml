@@ -28,7 +28,8 @@ jobs:
           path: durian
       - name: AT Config
         run: |
-          ls -a
-          && cd /durian \
+          cd /durian \
           && cp .env.sample .env \
           && npm install
+      - name: AT Run
+        run: npm run test-api
