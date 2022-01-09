@@ -15,9 +15,8 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-      - uses: actions/checkout@v2
       - name: AT Config
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
