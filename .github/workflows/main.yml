@@ -30,7 +30,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: AT Run
-        run: npm run test-api && mv ./reports ../reports
+        run: npm run test-api
   report:
     needs: test
     runs-on: ubuntu-latest
