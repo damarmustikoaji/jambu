@@ -18,5 +18,3 @@ jobs:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Test coba
