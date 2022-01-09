@@ -30,7 +30,5 @@ jobs:
             cd /durian \
             && cp .env.sample .env \
             && npm install
-      - name: AT Run
-        run: |
-          cd /durian \
-          && npm run test-api
+          name: Cek
+            run: ls -a
