@@ -21,3 +21,6 @@ jobs:
           repository: damarmustikoaji/durian
           path: durian
           run: cd durian
+          run: cp .env.sample .env
+          run: npm install
+          run: npm run test-api
