@@ -20,7 +20,6 @@ jobs:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
           path: durian
-          run: cp /durian/.env.sample /durian/.env
+          run: cd /durian && cp /durian/.env.sample /durian/.env
       - name: Run AT
-        run: cd durian
         run: npm run test-api
