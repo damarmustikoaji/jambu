@@ -32,7 +32,8 @@ jobs:
       - name: AT Run
         run: npm run test-api
       - name: Reporting
-        uses: actions/upload-artifact@v2
-        with:
-          name: Reports
-          path: /reports
+        run: ls
+        # uses: actions/upload-artifact@v2
+        # with:
+        #   name: Reports
+        #   path: /reports
