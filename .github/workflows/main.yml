@@ -14,12 +14,10 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-      - name: AT Config
+      - name: Automation Test
         uses: actions/checkout@v2
         with:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
           path: durian
-          run: cd /durian && cp /durian/.env.sample /durian/.env && npm install
-      - name: Run AT
-        run: cd /durian && npm run test-api
+          run: cd /durian && cp /durian/.env.sample /durian/.env && npm install && npm run test-api
