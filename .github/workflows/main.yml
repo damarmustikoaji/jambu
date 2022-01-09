@@ -25,8 +25,9 @@ jobs:
         with:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
-          run: |
-            cd durian \
-            && cp .env.sample .env \
-            && npm install \
-            && ls -a
+      - name: Automation Test
+        run: |
+          cd durian \
+          && cp .env.sample .env \
+          && npm install \
+          && ls -a
