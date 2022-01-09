@@ -1,8 +1,9 @@
 name: Deploy
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -23,6 +24,4 @@ jobs:
           path: durian
           run: cd /durian && cp /durian/.env.sample /durian/.env && npm install
       - name: AT Run
-        uses: actions/checkout@v2
-        run: |
-          npm run test-api
+        run: npm run test-api
