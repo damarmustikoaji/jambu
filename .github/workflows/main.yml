@@ -26,6 +26,7 @@ jobs:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
       - name: Automation Test2
+        uses: actions/setup-node@v2
         run: |
           cp .env.sample .env \
           && npm install
