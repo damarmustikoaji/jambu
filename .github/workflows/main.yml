@@ -39,3 +39,8 @@ jobs:
         # with:
         #   name: Reports
         #   path: /reports
+      - uses: actions/upload-artifact@v2
+        name: Archive Results
+        with:
+          name: Reporting
+          path: ./reports
