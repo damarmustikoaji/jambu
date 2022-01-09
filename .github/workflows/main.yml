@@ -22,4 +22,4 @@ jobs:
           path: durian
           run: cd /durian && cp /durian/.env.sample /durian/.env && npm install
       - name: Run AT
-        run: npm run test-api
+        run: cd /durian && npm run test-api
