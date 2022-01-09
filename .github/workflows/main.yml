@@ -17,4 +17,3 @@ jobs:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
