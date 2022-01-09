@@ -23,5 +23,6 @@ jobs:
           path: durian
           run: cd /durian && cp /durian/.env.sample /durian/.env && npm install
       - name: AT Run
+        uses: actions/checkout@v2
         run: |
           npm run test-api
