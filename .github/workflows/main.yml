@@ -14,7 +14,12 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-      - run: git clone git@github.com:damarmustikoaji/durian.git
+      - name: Testing
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.JAMBHU }}
+          repository: damarmustikoaji/durian
+          path: durian
       - run: cd durian
       - run: cp .env.sample .env
       - run: npm install
