@@ -16,5 +16,5 @@ jobs:
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
