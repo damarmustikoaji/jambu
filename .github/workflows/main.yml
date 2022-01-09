@@ -15,6 +15,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+  test:
+    needs: build
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Automation Test
