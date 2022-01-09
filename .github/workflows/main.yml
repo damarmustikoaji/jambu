@@ -8,16 +8,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
+      - name: Deploy to Server
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-      - name: Automation Test
+      - name: AT Setup
         uses: actions/checkout@v2
         with:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
           path: durian
-          run: ls && cd /durian && cp /durian/.env.sample /durian/.env && npm install && npm run test-api
+          run: cd /durian && cp /durian/.env.sample /durian/.env && npm install
+      - name: AT Run
+        run: |
+          npm run test-api
