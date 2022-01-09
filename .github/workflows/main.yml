@@ -31,4 +31,4 @@ jobs:
             && cp .env.sample .env \
             && npm install
       - name: AT Run
-        run: npm run test-api
+        run: cd /durian \ && npm run test-api
