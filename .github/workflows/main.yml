@@ -6,17 +6,17 @@ on:
     branches: [ master ]
 
 jobs:
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-  #       with:
-  #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-  #         heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
-  #         heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
   test:
-    # needs: deploy
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,19 +30,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: AT Run
-        run: npm run test-api
+        run: npm run test-api && mv ./reports ../reports
   report:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Import Results
-        run: ls
-      - name: Import Results
-        run: ls reports
-      - name: Import Results
-        run: ls reports/mochawesome
-        # uses: actions/upload-artifact@v2
-        # with:
-        #   name: Reports
-        #   path: ./reports
+      - name: AT Run
+        run: ls -a
