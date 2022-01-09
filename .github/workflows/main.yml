@@ -25,7 +25,12 @@ jobs:
         with:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
-      - name: Automation Test
+  test2:
+    needs: test1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Automation Test2
         run: |
           cd durian \
           && cp .env.sample .env \
