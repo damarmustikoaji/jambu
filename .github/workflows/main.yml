@@ -33,3 +33,5 @@ jobs:
       #     cache: npm
       - name: Automation Test2
         run: ls -a
+      - name: Automation Test2
+        run: npm install
