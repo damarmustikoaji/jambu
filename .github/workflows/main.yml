@@ -23,8 +23,8 @@ jobs:
       - name: Automation Test
         uses: actions/checkout@master
         with:
-          token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
+          token: ${{secrets.JAMBHU}}
           path: durian
   test2:
     needs: test1
