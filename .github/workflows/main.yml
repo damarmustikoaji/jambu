@@ -26,4 +26,9 @@ jobs:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
           path: durian
-          run: ls && cd /durian && cp /durian/.env.sample /durian/.env && npm install
+      - uses: actions/checkout@v2
+      - name: AT Config
+        run: |
+          cd durian \
+          && cp .env.sample .env \
+          && npm install
