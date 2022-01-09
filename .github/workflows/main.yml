@@ -1,4 +1,4 @@
-name: Deployment
+name: Deploy
 on:
   push:
     branches: [ master ]
@@ -6,17 +6,17 @@ on:
     branches: [ master ]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
-          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+  #       with:
+  #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+  #         heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
+  #         heroku_email: ${{secrets.HEROKU_API_EMAIL}}
   test:
-    needs: deploy
+    # needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,9 +26,10 @@ jobs:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
           path: durian
-          run: |
-            cd /durian \
-            && cp .env.sample .env \
-            && npm install
-          name: Cek
-            run: ls -a
+      - uses: actions/checkout@v2
+      - name: AT Config
+        run: |
+          ls -a
+          && cd durian \
+          && cp .env.sample .env \
+          && npm install
