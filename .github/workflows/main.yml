@@ -20,3 +20,4 @@ jobs:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
           path: durian
+          run: cp /durian/.env.sample /durian/.env
