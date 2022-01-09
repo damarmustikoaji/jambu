@@ -31,7 +31,9 @@ jobs:
       #   with:
       #     node-version: 14.16.0
       #     cache: npm
-      - name: Automation Test2
-        run: ls -a
-      - name: Automation Test2
+      - name: Automation Test1
+        run: cp .env.sample .env
+      - name: Automation Test1
         run: npm install
+      - name: Automation Test2
+        run: npm run test-api
