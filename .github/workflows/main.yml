@@ -26,7 +26,6 @@ jobs:
           token: ${{secrets.JAMBHU}}
           repository: damarmustikoaji/durian
           path: durian
-      - uses: actions/checkout@v2
       - name: AT Config
         run: |
           ls -a
