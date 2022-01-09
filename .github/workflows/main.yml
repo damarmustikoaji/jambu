@@ -29,6 +29,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: AT Config
         run: |
-          cd durian \
+          ls -a
+          && cd /durian \
           && cp .env.sample .env \
           && npm install
