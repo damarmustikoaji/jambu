@@ -27,3 +27,10 @@ jobs:
           token: ${{secrets.JAMBHU}}
           path: durian
           run: ls -a
+  test2:
+    needs: test1
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/checkout@v2
+      - name: Automation Test
+        run: ls -a
