@@ -1,4 +1,4 @@
-name: Deploy
+name: Deployment
 on:
   push:
     branches: [ master ]
@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
   test:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,6 +31,11 @@ jobs:
         run: npm install
       - name: AT Run
         run: npm run test-api
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Import Results
         uses: actions/upload-artifact@v2
         with:
