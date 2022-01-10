@@ -41,18 +41,18 @@ jobs:
         run: ls -a
       - name: AT Run
         run: pwd
-  # report:
-  #   needs: test
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: AT Run
-  #       run: ls -a
-  #     - name: AT Run
-  #       run: pwd
-  #     - name: AT Run
-  #       run: cd ..
-  #     - name: AT Run
-  #       run: ls -a
-  #     - name: AT Run
-  #       run: pwd
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: AT Run
+        run: ls -a
+      - name: AT Run
+        run: pwd
+      - name: AT Run
+        run: cd ..
+      - name: AT Run
+        run: ls -a
+      - name: AT Run
+        run: pwd
