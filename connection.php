@@ -1,10 +1,10 @@
 <?php
 Class dbObj {
 /* Database connection start */
-var $servername = "sql6.freemysqlhosting.net";
-var $username = "sql6462961";
-var $password = "HjNtIgJuwJ";
-var $dbname = "sql6462961";
+var $servername = "sql5.freemysqlhosting.net";
+var $username = "sql5464694";
+var $password = "ZG76TA52q9";
+var $dbname = "sql5464694";
 var $conn;
 function getConnstring() {
 $con = mysqli_connect($this->servername, $this->username,
