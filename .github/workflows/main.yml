@@ -25,6 +25,7 @@ jobs:
         with:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
+          path: automationtest
       - name: Setup Config
         run: cp .env.sample .env
       - name: Install Dependencies
