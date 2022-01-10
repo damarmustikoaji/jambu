@@ -26,14 +26,14 @@ jobs:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
           path: automationtest
-      - name: Setup Config
-        run: cp .env.sample .env
-      - name: Install Dependencies
-        run: npm install
-      - name: AT Run
-        run: |
-          npm run test-api \
-          && mv reports ../reports
+      # - name: Setup Config
+      #   run: cp .env.sample .env
+      # - name: Install Dependencies
+      #   run: npm install
+      # - name: AT Run
+      #   run: |
+      #     npm run test-api \
+      #     && mv reports ../reports
       - name: AT Run
         run: ls -a
       - name: AT Run
