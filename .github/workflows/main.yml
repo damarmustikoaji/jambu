@@ -6,17 +6,17 @@ on:
     branches: [ master ]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_API_NAME}}
-          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: akhileshns/heroku-deploy@v3.12.12
+  #       with:
+  #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+  #         heroku_app_name: ${{secrets.HEROKU_API_NAME}}
+  #         heroku_email: ${{secrets.HEROKU_API_EMAIL}}
   test:
-    needs: deploy
+    # needs: deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,11 +31,6 @@ jobs:
         run: npm install
       - name: AT Run
         run: npm run test-api
-  report:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
       - name: AT Run
         run: ls -a
       - name: AT Run
@@ -46,3 +41,18 @@ jobs:
         run: ls -a
       - name: AT Run
         run: pwd
+  # report:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: AT Run
+  #       run: ls -a
+  #     - name: AT Run
+  #       run: pwd
+  #     - name: AT Run
+  #       run: cd ..
+  #     - name: AT Run
+  #       run: ls -a
+  #     - name: AT Run
+  #       run: pwd
