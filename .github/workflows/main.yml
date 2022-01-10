@@ -6,43 +6,33 @@ on:
     branches: [ master ]
 
 jobs:
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: akhileshns/heroku-deploy@v3.12.12
-  #       with:
-  #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-  #         heroku_app_name: ${{secrets.HEROKU_API_NAME}}
-  #         heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-  test:
-    # needs: deploy
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+  test:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: actions/checkout@v2
       - name: Clone AT
         uses: actions/checkout@v2
         with:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
-          path: automationtest
-      # - name: Setup Config
-      #   run: cp .env.sample .env
-      # - name: Install Dependencies
-      #   run: npm install
-      # - name: AT Run
-      #   run: |
-      #     npm run test-api \
-      #     && mv reports ../reports
+      - name: Setup Config
+        run: cp .env.sample .env
+      - name: Install Dependencies
+        run: npm install
       - name: AT Run
-        run: ls -a
-      - name: AT Run
-        run: pwd
-  report:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: AT Run
-        run: ls -a
-      - name: AT Run
-        run: pwd
+        run: npm run test-api
+      - name: Import Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: Reports
+          path: ./reports
