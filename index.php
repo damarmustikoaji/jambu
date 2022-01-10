@@ -13,7 +13,7 @@ switch($request_method) {
 function defaultresponse() {
     $response=array(
             "status" => "99",
-            "message" => "route not found"
+            "message" => "route not found ya"
     );  
     header('Content-Type: application/json');
     echo json_encode($response);
