@@ -38,3 +38,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: AT Run
         run: ls -a
+      - name: AT Run
+        run: pwd
