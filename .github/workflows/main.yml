@@ -32,7 +32,7 @@ jobs:
       - name: AT Run
         run: |
           npm run test-api \
-          && mv /reports ../reports
+          && mv reports ../reports
       - name: AT Run
         run: ls -a
       - name: AT Run
