@@ -15,14 +15,12 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-      - name: Create Connection file
+      - name: Create env file
         run: |
-          touch connection.php
-          echo <?php >> connection.php
-          echo Class dbObj { var $servername = "localhost"; var $username = "root"; var $password = ""; var $dbname = "indonetsource"; var $conn; >> connection.php
-          echo function getConnstring() { $con = mysqli_connect($this->servername, $this->username, $this->password, $this->dbname) or die("Connection failed: " . mysqli_connect_error()); if (mysqli_connect_errno()) {printf("Connect failed: %s\n", mysqli_connect_error());exit();} else {$this->conn = $con;} return $this->conn;}} >> connection.php
-          echo ?>    > connection.php
-          cat connection.php
+          touch .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.COBAYAK }} >> .env
+          cat .env
   test:
     needs: deploy
     runs-on: ubuntu-latest
