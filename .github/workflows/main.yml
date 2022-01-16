@@ -15,11 +15,11 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-      - name: Do Something with env files
-        env:
-          QA_ENV_FILE: ${{ secrets.COBAYAK }}
+      - name: Create env file
         run: |
-          [ "$YOUR_ENVIRONMENT" = qa ] && echo $QA_ENV_FILE | base64 --decode > testyak.php
+          touch test.php
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> test.php
+          cat test.php
   test:
     needs: deploy
     runs-on: ubuntu-latest
