@@ -15,6 +15,14 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+      - name: Setup Config Coba
+        run: |
+          cat << EOF > test.php
+          <?php
+          API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com"
+          API_KEY=${{secrets.COBAYAK}}
+          EOF
+          ?>
   test:
     needs: deploy
     runs-on: ubuntu-latest
