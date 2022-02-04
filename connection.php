@@ -2,7 +2,7 @@
 Class dbObj { 
     var $servername = "us-cdbr-east-05.cleardb.net"; 
     var $username = "b43f42459eebe7"; 
-    var $password = "b681bd2d7"; 
+    var $password = "b681bd2d"; 
     var $dbname = "heroku_5b022ebec74d502"; 
     var $conn;
 function getConnstring() { 
