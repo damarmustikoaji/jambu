@@ -1,9 +1,9 @@
 <?php
 // Connect to database
-include("../connection.php");
+require_once('../connection.php');
 
-$db = new dbObj();
-$connection = $db->getConnstring();
+$db = new DbConnection();
+$connection = $db->getdbconnect();
 $request_method=$_SERVER["REQUEST_METHOD"];
 //=========================================
 
