@@ -21,6 +21,8 @@ jobs:
           echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
           echo API_KEY=${{secrets.HEROKU_API_NAME}} >> .env
           cat .env
+          pwd
+          ls -a
   test:
     needs: deploy
     runs-on: ubuntu-latest
