@@ -11,11 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
-          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-      - name: Create env file
         run: |
           touch .env
           echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
@@ -23,6 +18,10 @@ jobs:
           cat .env
           pwd
           ls -a
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
+          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
   test:
     needs: deploy
     runs-on: ubuntu-latest
