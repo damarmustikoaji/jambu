@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - uses: actions/checkout@v2
-      - name: Cloning
+      - name: Set up testing
         uses: actions/checkout@v2
         with:
           repository: damarmustikoaji/durian
