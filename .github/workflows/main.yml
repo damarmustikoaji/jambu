@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  FAKERESTAPI_BASE_URL: ${{ secrets.FAKERESTAPI_BASE_URL }}
+  REQRES_BASE_URL: ${{ secrets.REQRES_BASE_URL }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -32,6 +36,7 @@ jobs:
       - name: AT Run
         run: npm run test-api
       - name: Import Results
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: Reports
