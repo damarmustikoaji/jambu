@@ -24,20 +24,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - uses: actions/checkout@v2
-      - name: Clone AT
+      - name: Cloning
         uses: actions/checkout@v2
         with:
           repository: damarmustikoaji/durian
           token: ${{secrets.JAMBHU}}
-      - name: Setup Config
-        run: cp .env.sample .env
-      - name: Install Dependencies
+      - name: npm cache
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/lock.json') }}
+      - name: Installing
         run: npm install
-      - name: AT Run
+      - name: Testing
         run: npm run test-api
-      - name: Import Results
+      - name: Reporting
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: Reports
-          path: ./reports
+          path: reports
