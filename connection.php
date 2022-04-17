@@ -4,7 +4,7 @@ use DevCoder\DotEnv;
 
 Class DbConnection{
     function getdbconnect(){
-        (new DotEnv(__DIR__ . '/.env'))->load();
+        (new DotEnv(__DIR__ . '/.config'))->load();
         $host       = getenv('HOST');
         $username   = getenv('USERNAME');
         $password   = getenv('PASSWORD');

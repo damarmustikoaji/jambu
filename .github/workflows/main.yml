@@ -19,7 +19,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-          env_file: ".env"
+          env_file: ".config"
         env:
           HOST: us-cdbr-east-05.cleardb.net
           USERNAME: b43f42459eebe7

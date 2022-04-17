@@ -49,7 +49,7 @@ class DotEnv
 Class DbConnection{
     function getdbconnect(){
         
-        (new DotEnv(__DIR__ . '/.env'))->load();
+        (new DotEnv(__DIR__ . '/.config'))->load();
 
         echo getenv('APP_ENV');
         // dev
