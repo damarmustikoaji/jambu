@@ -17,10 +17,15 @@ jobs:
       - name: Deployment
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          run: echo "coba_urlnya=google.com" > .env
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_API_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_API_EMAIL}}
+          env_file: ".env"
+        env:
+          HOST: us-cdbr-east-05.cleardb.net
+          USERNAME: b43f42459eebe7
+          PASSWORD: b681bd2d
+          DATABASE: heroku_5b022ebec74d502
   test:
     needs: deploy
     runs-on: ubuntu-latest
