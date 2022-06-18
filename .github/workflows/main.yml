@@ -7,6 +7,10 @@ on:
 
 env:
   COBAPI_URL: ${{ secrets.COBAPI_URL }}
+  HOST: ${{ secrets.CLEAR_DB_HOST }}
+  USERNAME: ${{ secrets.CLEAR_DB_USERNAME }}
+  PASSWORD: ${{ secrets.CLEAR_DB_PASSWORD }}
+  DATABASE: ${{ secrets.CLEAR_DB_DATABASE }}
 
 jobs:
   deploy:
