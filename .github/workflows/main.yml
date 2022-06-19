@@ -53,3 +53,10 @@ jobs:
         with:
           name: Reports
           path: reports
+  alert:
+      needs: deploy
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Check services
+          run: curl --location --request GET 'https://cobapi.herokuapp.com/v1/ping'
