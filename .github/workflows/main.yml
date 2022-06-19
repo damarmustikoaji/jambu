@@ -28,28 +28,28 @@ jobs:
           USERNAME: ${{secrets.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
           DATABASE: ${{secrets.DATABASE}}
-  test:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      # - uses: actions/checkout@v2
-      - name: Set up testing
-        uses: actions/checkout@v2
-        with:
-          repository: damarmustikoaji/durian
-          token: ${{secrets.JAMBHU}}
-      - name: npm cache
-        uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/lock.json') }}
-      - name: Installing
-        run: npm install
-      - name: Testing
-        run: npm run test-api
-      - name: Reporting
-        if: always()
-        uses: actions/upload-artifact@v2
-        with:
-          name: Reports
-          path: reports
+#   test:
+#     needs: deploy
+#     runs-on: ubuntu-latest
+#     steps:
+#       # - uses: actions/checkout@v2
+#       - name: Set up testing
+#         uses: actions/checkout@v2
+#         with:
+#           repository: damarmustikoaji/durian
+#           token: ${{secrets.JAMBHU}}
+#       - name: npm cache
+#         uses: actions/cache@v2
+#         with:
+#           path: '**/node_modules'
+#           key: ${{ runner.os }}-modules-${{ hashFiles('**/lock.json') }}
+#       - name: Installing
+#         run: npm install
+#       - name: Testing
+#         run: npm run test-api
+#       - name: Reporting
+#         if: always()
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: Reports
+#           path: reports
