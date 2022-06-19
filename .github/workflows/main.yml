@@ -58,5 +58,5 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-        - name: Check services
-          run: curl --location --request GET 'https://cobapi.herokuapp.com/v1/ping'
+        - name: Check Health
+          run: curl --location --request GET '${{secrets.COBAPI_URL}}/v1/ping'
