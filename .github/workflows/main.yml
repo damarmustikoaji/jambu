@@ -53,7 +53,7 @@ jobs:
         with:
           name: Reports
           path: reports
-  alert:
+  health:
       needs: deploy
       runs-on: ubuntu-latest
       steps:
