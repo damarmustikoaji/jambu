@@ -1,3 +1,5 @@
+[![Deployment](https://github.com/damarmustikoaji/jambu/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/damarmustikoaji/jambu/actions/workflows/main.yml)
+
 # jambu
 ini adalah proyek coba-coba bikin rest api dengan php
 
